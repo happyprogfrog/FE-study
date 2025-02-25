@@ -158,3 +158,13 @@ header {
 #profile-section:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
 }
+
+.category-button {
+    color: #717171;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.category-button img {
+    width: 24px;
+}
