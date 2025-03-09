@@ -1,0 +1,16 @@
+body {
+    height: 200vh;
+}
+
+div {
+    height: 100px;
+}
+
+#div-1 {
+    /* padding-top: 20px; */
+    background-color: red;
+}
+
+#div-2 {
+    background-color: blue;
+}
