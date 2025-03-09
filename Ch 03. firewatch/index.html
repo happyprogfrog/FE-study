@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <a class="button-in-header">THE MOUNTAIN</a>
+        <a href="#document-title" class="button-in-header">THE MOUNTAIN</a>
         <div id="right-buttons">
             <a id="active-menu" class="button-in-header">MOUNTAIN</a>
             <a class="button-in-header">AMAZING BLOG</a>
@@ -1523,8 +1523,20 @@
                     </g>
         </svg>
     </div>
+    <div id="main-content-wrapper">
+        <p id="document-title">아름다운 금수강산</p>
+        <div id="mountain-tag-wrapper">
+            <ui class="mountain-content-wrapper">
+                <li class="mountain-content-list">지리산</li>
+                <li class="mountain-content-list">한라산</li>
+            </ui>
+            <ui class="mountain-content-wrapper">
+                <li class="mountain-content-list">도덕산</li>
+                <li class="mountain-content-list">구름산</li>
+            </ui>
+        </div>
+    </div>
 
-    
 </body>
 
 <script>
@@ -1571,6 +1583,16 @@
 			document.getElementById("active-menu").removeAttribute("id")
 
 			element.setAttribute("id", "active-menu")
+		})
+	})
+
+	const link = document.querySelector('a[href="#document-title"]')
+
+	link.addEventListener("click", () => {
+		event.preventDefault()
+
+		document.querySelector("#document-title").scrollIntoView({
+			behavior: "smooth"
 		})
 	})
 </script>
