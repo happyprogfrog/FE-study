@@ -49,7 +49,12 @@
         <li class="list-item">쿠폰사고팔기</li>
         <li class="list-item">한달적금</li>
         <li class="list-item">신용대출비교하기</li>
-    </ul>      
+    </ul>
+    <main>
+        <section id="panel1-img">
+            <img id="ryan-image" src="./img/ryan.png" alt="ryan">
+        </section>
+    </main>
 </body>
 
 <script>
@@ -64,21 +69,37 @@
     const listStyleChangeEndY = listStyleChangeStartY + listWrapper.offsetHeight;
 
     const division = (listStyleChangeEndY - listStyleChangeStartY) / listItems.length
+    
+    const panel1Img = document.getElementById('panel1-img')
+    const ryanImage = document.getElementById('ryan-image')
 
     window.addEventListener("scroll", () => {
+        // console.log(scrollY)
+
         // console.log(document.getElementById("list-item-wrapper").offsetTop)
 
         if (document.getElementById("on")) {
             document.getElementById("on").removeAttribute("id")
         }
 
-        if (listStyleChangeStartY < window.scrollY
+        if (listStyleChangeStartY < window.scrollY 
             && window.scrollY < listStyleChangeEndY) {
                 const targetIndex = Math.floor((window.scrollY - listStyleChangeStartY) / division)
                 if (listItems[targetIndex]) {
                     listItems[targetIndex].id = "on"
                 }
-            }
+        }
+        
+        const scrollYBottom = window.scrollY + document.documentElement.clientHeight
+
+        if (scrollYBottom > panel1Img.offsetTop 
+            && scrollYBottom < panel1Img.offsetTop + panel1Img.offsetHeight + 100) {
+            // console.log('over')
+            const translateX = 80 - 80 * 1.3 * (scrollYBottom - panel1Img.offsetTop) / (panel1Img.offsetHeight + 100)
+            const translateY = 13 - 13 * (scrollYBottom - panel1Img.offsetTop) / (panel1Img.offsetHeight + 100)
+            const rotateDegree = 23 - 23 * 1.2 * (scrollYBottom - panel1Img.offsetTop) / (panel1Img.offsetHeight + 100)
+            ryanImage.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotateDegree}deg)`
+        }
     })
 </script>
 
